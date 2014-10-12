@@ -1,0 +1,7 @@
+tabla1<-read.csv("household_power_consumption.txt",skip=66636, nrow=2880, sep=";")
+tabla1[,1]<-as.character(tabla1[,1])
+tabla1[,2]<-as.character(tabla1[,2])
+fecha1<-strptime(paste(tabla1[,1],tabla1[,2],sep=","),format="%d/%m/%Y,%H:%M:%S")
+png("plot1.png", width=480, height=480, units="px")
+hist(tabla1[,3],col="red",xlab="Global Active Power (kilowatts)",  main="Global Active Power")
+dev.off()
